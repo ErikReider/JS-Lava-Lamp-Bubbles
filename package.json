@@ -1,6 +1,6 @@
 {
   "name": "lava-lamp-bubbles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lava lamp bubbles on canvas",
   "main": "lava-lamp.js",
   "types": "lava-lamp.d.ts",

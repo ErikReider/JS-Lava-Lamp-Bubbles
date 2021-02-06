@@ -1,15 +1,36 @@
-export class Ge1doot {
+export default class LavaLampBubbles {
+    private lava0: LavaLamp;
+    private ctx: CanvasRenderingContext2D;
+    private screen: any;
+
+    constructor(canvasID: string, color1: string, color2: string) {
+        // canvas
+        this.screen = new Ge1doot(canvasID).init(true);
+        this.ctx = this.screen.ctx;
+        this.screen.resize();
+        window.addEventListener("resize", () => this.screen.resize());
+        // create LavaLamps
+        this.lava0 = new LavaLamp(this.ctx, this.screen.width, this.screen.height, 10, color1, color2);
+    }
+
+    public start() {
+        requestAnimationFrame(() => this.start());
+        this.ctx.clearRect(0, 0, screen.width, screen.height);
+        this.lava0.renderMetaballs();
+    }
+}
+
+class Ge1doot {
     private elem: HTMLCanvasElement;
-    private callback: Function;
     private ctx: CanvasRenderingContext2D;
     private width = 0;
     private height = 0;
     private left = 0;
     private top = 0;
 
-    constructor(id: string, callback: Function) {
+    constructor(id: string) {
         this.elem = <HTMLCanvasElement>document.getElementById(id);
-        this.callback = callback || null;
+        if(this.elem === null) throw "Invalid Canvas id!"
         this.ctx = <CanvasRenderingContext2D>this.elem.getContext("2d");
     }
 
@@ -37,7 +58,6 @@ export class Ge1doot {
             this.elem.width = this.width;
             this.elem.height = this.height;
         }
-        this.callback && this.callback();
     }
 }
 
@@ -107,7 +127,7 @@ class Ball {
     }
 }
 
-export class LavaLamp {
+class LavaLamp {
     private ctx: CanvasRenderingContext2D;
     private step = 5;
     public width: number;
