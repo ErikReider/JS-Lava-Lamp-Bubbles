@@ -1,4 +1,4 @@
-# JS-Lava-Lamp-Bubbles
+# Lava Lamp Bubbles
 
 ### Usage
 
