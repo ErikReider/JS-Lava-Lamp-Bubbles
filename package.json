@@ -20,9 +20,5 @@
   "bugs": {
     "url": "https://github.com/ErikReider/JS-Lava-Lamp-Bubbles/issues"
   },
-  "homepage": "https://github.com/ErikReider/JS-Lava-Lamp-Bubbles#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "require": "^2.4.20"
-  }
+  "homepage": "https://github.com/ErikReider/JS-Lava-Lamp-Bubbles#readme"
 }
