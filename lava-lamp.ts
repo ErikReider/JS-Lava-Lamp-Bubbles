@@ -3,14 +3,14 @@ export default class LavaLampBubbles {
     private ctx: CanvasRenderingContext2D;
     private screen: any;
 
-    constructor(canvasID: string, color1: string, color2: string) {
+    constructor(canvasID: string, speed: number, color1: string, color2: string) {
         // canvas
         this.screen = new Ge1doot(canvasID).init(true);
         this.ctx = this.screen.ctx;
         this.screen.resize();
         window.addEventListener("resize", () => this.screen.resize());
         // create LavaLamps
-        this.lava0 = new LavaLamp(this.ctx, this.screen.width, this.screen.height, 10, color1, color2);
+        this.lava0 = new LavaLamp(this.ctx, this.screen.width, this.screen.height, speed, 10, color1, color2);
     }
 
     public start() {
@@ -30,7 +30,7 @@ class Ge1doot {
 
     constructor(id: string) {
         this.elem = <HTMLCanvasElement>document.getElementById(id);
-        if(this.elem === null) throw "Invalid Canvas id!"
+        if (this.elem === null) throw "Invalid Canvas id!";
         this.ctx = <CanvasRenderingContext2D>this.elem.getContext("2d");
     }
 
@@ -92,8 +92,8 @@ class Ball {
         let min = 0.05;
         let max = 0.075;
         this.vel = new Point(
-            (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25) * 0.25,
-            (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random()) * 0.25
+            (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25) * 0.25 * par.speed,
+            (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random()) * 0.25 * par.speed
         );
         this.pos = new Point(
             par.width * 0.2 + Math.random() * par.width * 0.6,
@@ -135,6 +135,7 @@ class LavaLamp {
     public wh: number;
     private sx: number;
     private sy: number;
+    public speed: number;
     private paint = false;
     private metaFill: any;
     private plx: number[];
@@ -150,6 +151,7 @@ class LavaLamp {
         ctx: CanvasRenderingContext2D,
         width: number,
         height: number,
+        speed: number,
         numBalls: number,
         c0: string,
         c1: string
@@ -161,6 +163,7 @@ class LavaLamp {
         this.wh = Math.min(width, height);
         this.sx = Math.floor(this.width / this.step);
         this.sy = Math.floor(this.height / this.step);
+        this.speed = speed;
         this.paint = false;
         this.metaFill = createRadialGradient(this.ctx, width, height, width, c0, c1);
         this.plx = [0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0];

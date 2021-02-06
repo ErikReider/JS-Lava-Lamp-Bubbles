@@ -3,10 +3,10 @@
 ### Usage
 
 ```Typescript
-import LavaLampBubbles from "lava-lamp";
+import { default as LavaLampBubbles } from "lava-lamp-bubbles";
 
 onload = () => {
-    new LavaLampBubbles("bubble", "#CA3E8C", "#840470").start();
+    let lamp = new LavaLampBubbles("canvas", 0.5, "#CA3E8C", "#840470").start();
 };
 ```
 
