@@ -1,0 +1,28 @@
+{
+  "name": "js-lava-lamp-bubbles",
+  "version": "1.0.0",
+  "description": "Lava lamp bubbles on canvas",
+  "main": "lava-lamp.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikReider/JS-Lava-Lamp-Bubbles.git"
+  },
+  "keywords": [
+    "Lava",
+    "lamp",
+    "bubbles"
+  ],
+  "author": "Erik Reider",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ErikReider/JS-Lava-Lamp-Bubbles/issues"
+  },
+  "homepage": "https://github.com/ErikReider/JS-Lava-Lamp-Bubbles#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "require": "^2.4.20"
+  }
+}
