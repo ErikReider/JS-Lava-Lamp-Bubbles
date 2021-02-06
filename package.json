@@ -1,8 +1,12 @@
 {
-  "name": "js-lava-lamp-bubbles",
+  "name": "lava-lamp-bubbles",
   "version": "1.0.0",
   "description": "Lava lamp bubbles on canvas",
-  "main": "lava-lamp.ts",
+  "main": "lava-lamp.js",
+  "types": "lava-lamp.d.ts",
+  "engines": {
+    "node": "v12.20.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
